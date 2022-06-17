@@ -5,7 +5,6 @@ import User from 'App/Models/User'
 export default class UsersController {
   public async login({ request, auth, response }: HttpContextContract) {
     const { email, password } = request.all()
-    console.log('login')
 
     try {
       const token = await auth.attempt(email, password)
