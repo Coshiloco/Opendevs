@@ -10,8 +10,12 @@ export default class TecnologiasController {
   }
 
   public async index_id({ response, request }: HttpContextContract) {
-    const tecnologia = await Tecnologia.findBy('id', request.params().id)
-    return response.json(tecnologia)
+    try {
+      const tecnologia = await Tecnologia.findBy('id', request.params().id)
+      return response.json(tecnologia)
+    } catch (error) {
+      return response.badRequest({ error: error.message })
+    }
   }
 
   public async store({ request, response }: HttpContextContract) {
