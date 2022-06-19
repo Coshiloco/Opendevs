@@ -1,11 +1,11 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'keywords'
+  protected tableName = 'tecnologias'
 
   public async up() {
     this.schema.alterTable(this.tableName, (table) => {
-      table.text('name').notNullable()
+      table.string('name').notNullable()
     })
   }
 

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 import Client from './Client'
-import Keyword from './Keyword'
+import Tecnologia from './Tecnologia'
 import ModalityJob from 'Contracts/Enums/modalityJob'
 
 export default class Offer extends BaseModel {
@@ -12,7 +12,7 @@ export default class Offer extends BaseModel {
   public title: string
 
   @column()
-  public keywords: Keyword
+  public tecnologias: Tecnologia
 
   @column()
   public type: ModalityJob // Enum remote, on-site, hybrid

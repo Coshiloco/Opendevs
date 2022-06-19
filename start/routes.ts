@@ -5,10 +5,12 @@ Route.post('/login', 'UsersController.login')
 Route.post('/register', 'UsersController.store')
 
 Route.group(() => {
-  Route.get('/index/:id', 'KeywordsController.index')
-  Route.get('/index', 'KeywordsController.index')
-  Route.post('/create', 'keywordsController.store')
-}).prefix('/keyword')
+  Route.get('/index/:id', 'TecnologiasController.index_id')
+  Route.get('/index', 'TecnologiasController.index')
+  Route.post('/create', 'TecnologiasController.store')
+  Route.delete('/delete/:id', 'TecnologiasController.delete')
+  Route.patch('/update/:id', 'TecnologiasController.update')
+}).prefix('/tecnologias')
 
 Route.get('health', async ({ response }) => {
   const report = await HealthCheck.getReport()

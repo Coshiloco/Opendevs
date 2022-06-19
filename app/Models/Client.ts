@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 import Offer from './Offer'
-import Keyword from './Keyword'
+import Tecnologia from './Tecnologia'
 
 export default class Client extends BaseModel {
   @column({ isPrimary: true })
@@ -17,7 +17,7 @@ export default class Client extends BaseModel {
   public offers: Offer
 
   @column()
-  public keywords: Keyword
+  public tecnologias: Tecnologia
 
   @column()
   public founded: number
