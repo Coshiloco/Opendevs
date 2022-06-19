@@ -9,6 +9,11 @@ export default class KeywordsController {
     return response.json(keywords)
   }
 
+  public async index_id({ response }: HttpContextContract) {
+    const keywords = await Keyword.find(1)
+    return response.json(keywords)
+  }
+
   public async store({ request, response }: HttpContextContract) {
     const validateData = await request.validate(CreateKeywordValidator)
     const keyword = await Keyword.create(validateData)
