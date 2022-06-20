@@ -12,7 +12,7 @@ export default class extends BaseSchema {
       table.integer('experienceYears')
       table.integer('price').notNullable()
       table.string('description', 100)
-      table.objectId('client_id').notNullable()
+      table.string('tecnologias').notNullable()
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

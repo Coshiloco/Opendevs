@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Tecnologia from './Tecnologia'
 import ModalityJob from 'Contracts/Enums/modalityJob'
 
@@ -10,8 +10,11 @@ export default class Offer extends BaseModel {
   @column()
   public title: string
 
-  @column()
-  public tecnologias: Tecnologia
+  @manyToMany(() => Tecnologia, {
+    localKey: 'tecnologias',
+    pivotForeignKey: 'name',
+  })
+  public tecnologias: ManyToMany<typeof Tecnologia>
 
   @column()
   public type: ModalityJob // Enum remote, on-site, hybrid
