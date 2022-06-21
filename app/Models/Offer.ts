@@ -1,7 +1,15 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  BelongsTo,
+  belongsTo,
+  column,
+  ManyToMany,
+  manyToMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import { ModalityJob } from 'app/Models/contracts/Enums/ModalityJob'
 import Technology from './Technology'
+import Client from './Client'
 
 export default class Offer extends BaseModel {
   @column({ isPrimary: true })
@@ -15,6 +23,9 @@ export default class Offer extends BaseModel {
     pivotTable: 'offers_technologies',
   })
   public technologies: ManyToMany<typeof Technology>
+
+  @belongsTo(() => Client)
+  public client: BelongsTo<typeof Client>
 
   @column()
   public type: ModalityJob // Enum remote, on-site, hybrid
