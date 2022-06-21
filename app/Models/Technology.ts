@@ -3,7 +3,7 @@ import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Offer from './Offer'
 import Client from './Client'
 
-export default class Tecnologia extends BaseModel {
+export default class Technology extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 

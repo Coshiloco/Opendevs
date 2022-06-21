@@ -18,8 +18,8 @@ export default class OffersController {
   }
   public async store({ request, response }: HttpContextContract) {
     const validateData = await request.validate(CreateOfferValidator)
-    const tecnologia = await Offer.create(validateData)
-    return response.created({ data: tecnologia })
+    const offer = await Offer.create(validateData)
+    return response.created({ data: offer })
   }
 
   public async update({ request, response }: HttpContextContract) {

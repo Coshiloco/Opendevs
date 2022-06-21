@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'tecnologias'
+  protected tableName = 'technologies'
 
   public async up() {
     this.schema.alterTable(this.tableName, (table) => {

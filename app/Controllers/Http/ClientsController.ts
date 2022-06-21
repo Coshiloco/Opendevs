@@ -31,6 +31,6 @@ export default class ClientsController {
   public async delete({ request, response }: HttpContextContract) {
     const client = await Client.findByOrFail('id', request.params().id)
     await client.delete()
-    return response.ok('Cliente eliminado')
+    return response.ok('Client deleted')
   }
 }

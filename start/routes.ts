@@ -29,12 +29,12 @@ Route.group(() => {
 }).prefix('/Clients')
 
 Route.group(() => {
-  Route.get('/index/:id', 'TecnologiasController.index_id')
-  Route.get('/index', 'TecnologiasController.index')
-  Route.post('/create', 'TecnologiasController.store')
-  Route.delete('/delete/:id', 'TecnologiasController.delete')
-  Route.patch('/update/:id', 'TecnologiasController.update')
-}).prefix('/tecnologias')
+  Route.get('/index/:id', 'TechnologiesController.index_id')
+  Route.get('/index', 'TechnologiesController.index')
+  Route.post('/create', 'TechnologiesController.store')
+  Route.delete('/delete/:id', 'TechnologiesController.delete')
+  Route.patch('/update/:id', 'TechnologiesController.update')
+}).prefix('/Technologies')
 
 //apiOnly (como colocarlo)
 
