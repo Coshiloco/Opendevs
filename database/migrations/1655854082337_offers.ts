@@ -1,5 +1,5 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
-import { ModalityJob } from 'App/Models/contracts/Enums/ModalityJob'
+import { ModalityJob } from 'App/Models/Contracts/Enums/ModalityJob'
 
 export default class extends BaseSchema {
   protected tableName = 'offers'

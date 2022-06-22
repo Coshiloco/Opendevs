@@ -13,6 +13,7 @@ Route.group(() => {
 Route.group(() => {
   Route.get('/index/:id', 'OffersController.index_id')
   Route.get('/index', 'OffersController.index')
+  Route.get('/query', 'OffersController.query')
   Route.post('/login', 'OffersController.login')
   Route.post('/register', 'OffersController.store')
   Route.delete('/delete/:id', 'OffersController.delete')
