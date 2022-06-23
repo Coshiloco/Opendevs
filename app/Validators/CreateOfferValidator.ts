@@ -1,6 +1,6 @@
 import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { ModalityJob } from 'app/Models/Contracts/Enums/ModalityJob'
+import { ModalityJob } from 'App/Models/Contracts/Enums/ModalityJob'
 
 export default class CreateOfferValidator {
   constructor(protected ctx: HttpContextContract) {}
@@ -26,11 +26,11 @@ export default class CreateOfferValidator {
    */
   public schema = schema.create({
     title: schema.string({}),
-    description: schema.string({}),
     type: schema.enum(Object.values(ModalityJob)),
     price: schema.number(),
     experienceYears: schema.number(),
-    technologies: schema.array().members(schema.number()),
+    description: schema.string({}),
+    clientId: schema.number(),
   })
 
   /**

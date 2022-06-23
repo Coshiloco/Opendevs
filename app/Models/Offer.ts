@@ -19,7 +19,6 @@ export default class Offer extends BaseModel {
   public title: string
 
   @manyToMany(() => Technology, {
-    pivotForeignKey: 'offer_id',
     pivotTable: 'offers_technologies',
   })
   public technologies: ManyToMany<typeof Technology>
@@ -35,6 +34,9 @@ export default class Offer extends BaseModel {
 
   @column()
   public price: number
+
+  @column()
+  public clientId: number
 
   @column()
   public description: string

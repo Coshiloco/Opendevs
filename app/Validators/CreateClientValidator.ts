@@ -26,7 +26,6 @@ export default class CreateClientValidator {
   public schema = schema.create({
     name: schema.string({}),
     description: schema.string({}),
-    offer_id: schema.array().members(schema.number()),
     founded: schema.number(),
     url: schema.string({}),
   })

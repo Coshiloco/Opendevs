@@ -8,7 +8,7 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string('title')
-      table.integer('experienceYears')
+      table.integer('experience_years')
       table.integer('price')
       table.enum('type', Object.values(ModalityJob))
 

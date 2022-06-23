@@ -8,7 +8,6 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('name')
       table.string('description')
-      table.integer('offer_id')
       table.integer('founded')
       table.string('url').nullable()
 

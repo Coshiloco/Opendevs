@@ -9,9 +9,6 @@ export default class Technology extends BaseModel {
   @column()
   public name: string
 
-  @column()
-  public offer_id: number
-
   @belongsTo(() => Offer)
   public offers: BelongsTo<typeof Offer>
 
