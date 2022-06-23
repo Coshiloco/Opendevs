@@ -12,7 +12,7 @@
     "App": "app",
     "Config": "config",
     "Database": "database",
-    "Contracts": "contracts"
+    "Contracts": "Contracts"
   },
   "preloads": [
     "./start/routes",

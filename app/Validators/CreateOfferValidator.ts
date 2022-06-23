@@ -1,6 +1,6 @@
 import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { ModalityJob } from 'App/Models/Contracts/Enums/ModalityJob'
+import { ModalityJob } from 'app/Models/Contracts/Enums/ModalityJob'
 
 export default class CreateOfferValidator {
   constructor(protected ctx: HttpContextContract) {}

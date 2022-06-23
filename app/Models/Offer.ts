@@ -7,7 +7,7 @@ import {
   ManyToMany,
   manyToMany,
 } from '@ioc:Adonis/Lucid/Orm'
-import { ModalityJob } from 'app/Models/Contracts/Enums/ModalityJob'
+import { ModalityJob } from './Contracts/Enums/ModalityJob'
 import Technology from './Technology'
 import Client from './Client'
 
