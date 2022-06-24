@@ -21,7 +21,7 @@ export default class Client extends BaseModel {
   @column()
   public url: String
 
-  @hasMany(() => Offer, { foreignKey: 'client_Id' })
+  @hasMany(() => Offer, { foreignKey: 'clientId' })
   public offers: HasMany<typeof Offer>
 
   @column.dateTime({ autoCreate: true })
