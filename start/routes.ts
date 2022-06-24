@@ -23,6 +23,7 @@ Route.group(() => {
 Route.group(() => {
   Route.get('/index/:id', 'ClientsController.index_id')
   Route.get('/index', 'ClientsController.index')
+  Route.get('/query', 'ClientsController.query')
   Route.post('/login', 'ClientsController.login')
   Route.post('/create', 'ClientsController.store')
   Route.delete('/delete/:id', 'ClientsController.delete')

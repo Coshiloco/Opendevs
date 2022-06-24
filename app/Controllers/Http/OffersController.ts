@@ -1,17 +1,11 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Offer from 'App/Models/Offer'
-import Technology from 'App/Models/Technology'
 import CreateOfferValidator from 'App/Validators/CreateOfferValidator'
 
 export default class OffersController {
   public async index({ response }: HttpContextContract) {
     const offer = await Offer.all()
     return response.json(offer)
-  }
-
-  public async query({ response }: HttpContextContract) {
-    const query = await Technology.query().preload('offers')
-    return response.json(query)
   }
 
   public async index_id({ response, request }: HttpContextContract) {
