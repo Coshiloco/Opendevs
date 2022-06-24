@@ -8,6 +8,14 @@ export default class OffersController {
     return response.json(offer)
   }
 
+  public async query({ request, response }: HttpContextContract) {
+    const offers = await Offer.query()
+      .where('id', request.params().id)
+      .preload('client')
+      .firstOrFail()
+    return response.json(offers)
+  }
+
   public async index_id({ response, request }: HttpContextContract) {
     try {
       const offer = await Offer.findBy('id', request.params().id)

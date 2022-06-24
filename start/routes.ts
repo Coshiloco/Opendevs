@@ -13,7 +13,7 @@ Route.group(() => {
 Route.group(() => {
   Route.get('/index/:id', 'OffersController.index_id')
   Route.get('/index', 'OffersController.index')
-  Route.get('/query', 'OffersController.query')
+  Route.get('/query/:id', 'OffersController.query')
   Route.post('/login', 'OffersController.login')
   Route.post('/create', 'OffersController.store')
   Route.delete('/delete/:id', 'OffersController.delete')
@@ -23,7 +23,7 @@ Route.group(() => {
 Route.group(() => {
   Route.get('/index/:id', 'ClientsController.index_id')
   Route.get('/index', 'ClientsController.index')
-  Route.get('/query', 'ClientsController.query')
+  Route.get('/query/:id', 'ClientsController.query')
   Route.post('/login', 'ClientsController.login')
   Route.post('/create', 'ClientsController.store')
   Route.delete('/delete/:id', 'ClientsController.delete')

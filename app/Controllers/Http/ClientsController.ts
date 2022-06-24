@@ -9,11 +9,12 @@ export default class ClientsController {
     return response.json(clients)
   }
 
-  public async query({ params: { client_id }, response }: HttpContextContract) {
-    const clients = await Client.all()
-    const offers = await Offer.query().where('client_id', client_id).preload('client').firstOrFail()
-    const hola = [clients, offers]
-    return response.json(hola)
+  public async query({ request, response }: HttpContextContract) {
+    const offers = await Offer.query()
+      .where('id', request.params().id)
+      .preload('client')
+      .firstOrFail()
+    return response.json(offers)
   }
 
   public async index_id({ response, request }: HttpContextContract) {
