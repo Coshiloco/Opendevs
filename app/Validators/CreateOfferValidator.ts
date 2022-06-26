@@ -32,6 +32,7 @@ export default class CreateOfferValidator {
     description: schema.string({}),
     clientId: schema.number(),
     location: schema.string({}),
+    technologies: schema.object.optional().anyMembers(),
   })
 
   /**

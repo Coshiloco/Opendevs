@@ -1,6 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Offer from 'App/Models/Offer'
-import Technology from 'App/Models/Technology'
 import CreateOfferValidator from 'App/Validators/CreateOfferValidator'
 
 export default class OffersController {
@@ -19,6 +18,15 @@ export default class OffersController {
       .firstOrFail()
     return response.json(offers)
   }
+  /*
+  public async filter({ request, response }: HttpContextContract) {
+    const offers = await Offer.query()
+      .where('id', request.params().id)
+      .preload('technologies')
+      .preload('client')
+      .firstOrFail()
+    return response.json(offers)
+  }*/
 
   public async index_id({ response, request }: HttpContextContract) {
     try {
@@ -31,6 +39,10 @@ export default class OffersController {
   public async store({ request, response }: HttpContextContract) {
     const validateData = await request.validate(CreateOfferValidator)
     const offer = await Offer.create(validateData)
+    if (validateData.technologies) {
+      await offer.related('technologies').sync(validateData.technologies)
+    }
+    await offer.save()
     return response.created({ data: offer })
   }
 

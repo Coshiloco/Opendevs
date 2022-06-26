@@ -20,6 +20,8 @@ export default class Offer extends BaseModel {
 
   @manyToMany(() => Technology, {
     pivotTable: 'offers_technologies',
+    pivotTimestamps: true,
+    //    pivotForeignKey: 'offer_id',
   })
   public technologies: ManyToMany<typeof Technology>
 

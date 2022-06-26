@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Offer from './Offer'
 
 export default class Technology extends BaseModel {
@@ -9,8 +9,12 @@ export default class Technology extends BaseModel {
   @column()
   public name: string
 
-  @belongsTo(() => Offer)
-  public offers: BelongsTo<typeof Offer>
+  @manyToMany(() => Offer, {
+    pivotTable: 'offers_technologies',
+    pivotTimestamps: true,
+    //    pivotForeignKey: 'technology_id',
+  })
+  public offers: ManyToMany<typeof Offer>
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

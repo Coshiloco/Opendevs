@@ -8,16 +8,6 @@ export default class ClientsController {
     return response.json(clients)
   }
 
-  public async filter({ response, request }: HttpContextContract) { // filter clients by id and founded
-    const { id, founded } = request.all()
-    const offers = await Client.query()
-      .where('id', id)
-      .where('founded', founded)
-      .preload('offers')
-      .firstOrFail()
-    return response.json(offers)
-  }
-
   public async query({ request, response }: HttpContextContract) {
     const offers = await Client.query()
       .where('id', request.params().id)
