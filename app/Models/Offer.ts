@@ -39,6 +39,9 @@ export default class Offer extends BaseModel {
   public clientId: number
 
   @column()
+  public location: string
+
+  @column()
   public description: string
 
   @column.dateTime({ autoCreate: true })

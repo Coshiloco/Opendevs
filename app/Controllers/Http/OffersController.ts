@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Offer from 'App/Models/Offer'
+import Technology from 'App/Models/Technology'
 import CreateOfferValidator from 'App/Validators/CreateOfferValidator'
 
 export default class OffersController {
@@ -8,9 +9,12 @@ export default class OffersController {
     return response.json(offer)
   }
 
+  // .groupOrderBy('projects.updated_at', 'desc')
+
   public async query({ request, response }: HttpContextContract) {
     const offers = await Offer.query()
       .where('id', request.params().id)
+      .preload('technologies')
       .preload('client')
       .firstOrFail()
     return response.json(offers)

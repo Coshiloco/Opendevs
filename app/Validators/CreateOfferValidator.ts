@@ -31,6 +31,7 @@ export default class CreateOfferValidator {
     experienceYears: schema.number(),
     description: schema.string({}),
     clientId: schema.number(),
+    location: schema.string({}),
   })
 
   /**
