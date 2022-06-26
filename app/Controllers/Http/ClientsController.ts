@@ -16,9 +16,9 @@ export default class ClientsController {
     return response.json(offers)
   }
 
-  public async index_id({ response, request }: HttpContextContract) {
+  public async show({ params: { id }, response }: HttpContextContract) {
     try {
-      const client = await Client.findBy('id', request.params().id)
+      const client = await Client.findBy('id', id)
       return response.json(client)
     } catch (error) {
       return response.badRequest({ error: error.message })
@@ -36,7 +36,7 @@ export default class ClientsController {
     return response.ok({ data: client })
   }
 
-  public async delete({ request, response }: HttpContextContract) {
+  public async destroy({ request, response }: HttpContextContract) {
     const client = await Client.findByOrFail('id', request.params().id)
     await client.delete()
     return response.ok('Client deleted')

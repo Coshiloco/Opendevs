@@ -9,7 +9,7 @@ export default class TechnologiesController {
     return response.json(technologies)
   }
 
-  public async index_id({ response, request }: HttpContextContract) {
+  public async show({ response, request }: HttpContextContract) {
     try {
       const technology = await Technology.findBy('id', request.params().id)
       return response.json(technology)
@@ -30,7 +30,7 @@ export default class TechnologiesController {
     return response.ok({ data: technology })
   }
 
-  public async delete({ request, response }: HttpContextContract) {
+  public async destroy({ request, response }: HttpContextContract) {
     const technology = await Technology.findByOrFail('id', request.params().id)
     await technology.delete()
     return response.ok('Technology deleted')

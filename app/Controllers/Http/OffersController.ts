@@ -28,9 +28,9 @@ export default class OffersController {
     return response.json(offers)
   }*/
 
-  public async index_id({ response, request }: HttpContextContract) {
+  public async show({ params: { id }, response }: HttpContextContract) {
     try {
-      const offer = await Offer.findBy('id', request.params().id)
+      const offer = await Offer.findBy('id', id)
       return response.json(offer)
     } catch (error) {
       return response.badRequest({ error: error.message })
@@ -46,8 +46,8 @@ export default class OffersController {
     return response.created({ data: offer })
   }
 
-  public async update({ request, response }: HttpContextContract) {
-    const offer = await Offer.findByOrFail('id', request.params().id)
+  public async update({ params: { id }, response, request }: HttpContextContract) {
+    const offer = await Offer.findByOrFail('id', id)
     await offer.merge(request.all()).save()
     return response.ok({ data: offer })
   }

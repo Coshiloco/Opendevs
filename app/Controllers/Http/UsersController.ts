@@ -15,14 +15,14 @@ export default class UsersController {
     }
   }
 
-  public async index({ response }: HttpContextContract) {
+/*  public async index({ response }: HttpContextContract) {
     const user = await User.all()
     return response.json(user)
-  }
+  }*/
 
-  public async index_id({ response, request }: HttpContextContract) {
+  public async show({ params: { id }, response }: HttpContextContract) {
     try {
-      const user = await User.findBy('id', request.params().id)
+      const user = await User.findBy('id', id)
       return response.json(user)
     } catch (error) {
       return response.badRequest({ error: error.message })
@@ -35,14 +35,14 @@ export default class UsersController {
     return response.created({ data: user })
   }
 
-  public async update({ request, response }: HttpContextContract) {
-    const user = await User.findByOrFail('id', request.params().id)
+  public async update({ params: { id }, request, response }: HttpContextContract) {
+    const user = await User.findByOrFail('id', id)
     await user.merge(request.all()).save()
     return response.ok({ data: user })
   }
 
-  public async delete({ request, response }: HttpContextContract) {
-    const user = await User.findByOrFail('id', request.params().id)
+  public async destroy({ params: { id }, response }: HttpContextContract) {
+    const user = await User.findByOrFail('id', id)
     await user.delete()
     return response.ok('Usuario eliminado')
   }
