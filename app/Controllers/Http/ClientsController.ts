@@ -8,17 +8,9 @@ export default class ClientsController {
     return response.json(clients)
   }
 
-  public async query({ request, response }: HttpContextContract) {
-    const offers = await Client.query()
-      .where('id', request.params().id)
-      .preload('offers')
-      .firstOrFail()
-    return response.json(offers)
-  }
-
   public async show({ params: { id }, response }: HttpContextContract) {
     try {
-      const client = await Client.findBy('id', id)
+      const client = await Client.query().where('id', id).preload('offers').firstOrFail()
       return response.json(client)
     } catch (error) {
       return response.badRequest({ error: error.message })

@@ -5,20 +5,18 @@ import User from 'App/Models/User'
 export default class UsersController {
   public async login({ request, auth, response }: HttpContextContract) {
     const { email, password } = request.all()
-
     try {
       const token = await auth.attempt(email, password)
-
       return { token: token, data: auth.user }
     } catch (error) {
       return response.badRequest({ error: error.message })
     }
   }
 
-/*  public async index({ response }: HttpContextContract) {
+  public async index({ response }: HttpContextContract) {
     const user = await User.all()
     return response.json(user)
-  }*/
+  }
 
   public async show({ params: { id }, response }: HttpContextContract) {
     try {
